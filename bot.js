@@ -15,11 +15,13 @@ const getBrowserInstance = async () => {
         };
     } else {
         puppeteer = require("puppeteer");
+        options = {
+            headless: true,
+            ignoreHTTPSErrors: true,
+        }
     }
 
-    let browser = await puppeteer.launch(options);
-
-    return browser;
+    return puppeteer.launch(options);
 }
 
 module.exports = getBrowserInstance;
