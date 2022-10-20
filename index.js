@@ -9,7 +9,8 @@ app.get("/api", async (req, res) => {
     await page.goto("https://www.google.com");
     res.send(await page.title());
   } catch (err) {
-    console.error(err);
+    console.error(err.message);
+    res.send(err.message);
     return null;
   }
 });
