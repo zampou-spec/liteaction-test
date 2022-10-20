@@ -1,9 +1,9 @@
-const bot = require('./bot');
 const app = require("express")();
+const getBrowserInstance = require('./bot');
 
 app.get("/api", async (req, res) => {
   try {
-    let chromium = bot.getBrowserInstance();
+    let browser = getBrowserInstance();
 
     let page = await browser.newPage();
     await page.goto("https://www.google.com");
